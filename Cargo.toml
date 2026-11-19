@@ -285,3 +285,10 @@ required-features = ["zenoh"]
 name = "zenoh_interop"
 path = "examples/zenoh_interop/main.rs"
 required-features = ["zenoh"]
+
+# This branch is upstream master plus changes that are still open upstream.
+# They need RustDDS changes that are open upstream as well, so RustDDS comes
+# from the master of the fork that carries those. A crate that depends on this
+# one has to repeat the patch: cargo ignores the patches of a dependency.
+[patch.crates-io]
+rustdds = { git = "https://github.com/johannesschrimpf/RustDDS.git", branch = "master" }
